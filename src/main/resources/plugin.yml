@@ -1,0 +1,37 @@
+name: MagicksAPI
+version: 1.0-SNAPSHOT
+main: net.havengarde.magicksapi.MagicksAPI
+api-version: 1.16
+authors: [ hayachikin ]
+prefix: MagicksAPI
+depend: [ Aureycore ]
+usage: &usage "\u00A7cWrong syntax. Use /<command> help to show proper usage."
+permission-message: &noperms "\u00A7cYou do not have permission to use this command."
+
+commands:
+  magicksapi:
+    description: Admin-only commands for the MagicksAPI plugin
+    usage: *usage
+    permission: magicksapi.admin
+    permission-message: *noperms
+  bind:
+    description: Bind a skill to the held item
+    usage: "\u00A7cWrong syntax. Use /bind <skill-name> while holding an item to bind that skill to the item."
+    permission: magicksapi.bind
+    permission-message: *noperms
+  cast:
+    description: Cast a skill at a valid target
+    usage: "\u00A7cWrong syntax. Use /cast <skill-name> while looking at a valid target to cast that skill."
+    permission: magicksapi.cast
+    permission-message: *noperms
+
+permissions:
+  magicksapi.admin:
+    description: Allows you to access MagicksAPI admin-only commands
+    default: op
+  magicksapi.bind:
+    description: Allows you to bind skills to items via commands
+    default: true
+  magicksapi.cast:
+    description: Allows you to cast skills via commands
+    default: true
